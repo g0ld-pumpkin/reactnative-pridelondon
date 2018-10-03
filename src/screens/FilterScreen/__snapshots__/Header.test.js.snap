@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`applies styles to clear button when showClear=true 1`] = `
+<Header
+  leftElement={<Unknown />}
+  rightElement={
+    <ActionButton
+      label="Reset"
+      onPress={[Function]}
+      style={Object {}}
+    />
+  }
+  title="Filter Events"
+/>
+`;
+
+exports[`renders correctly 1`] = `
+<Header
+  leftElement={<Unknown />}
+  rightElement={null}
+  title="Filter Events"
+/>
+`;

@@ -1,0 +1,58 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "jest": true,
+    "node": true,
+    "react-native/react-native": true,
+    "detox/detox": true,
+    "mocha": true,
+    "jasmine": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": [
+    "flowtype",
+    "react",
+    "react-native",
+    "detox"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true,
+      "experimentalDecorators": true
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": 0,
+    "no-use-before-define": 0,
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-color-literals": 2,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/e2e/**/*.js",
+          "**/scripts/**/*.js",
+          "**/*.test.js",
+          "**/setup-tests.js"
+        ],
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": "react-native"
+  }
+}

@@ -1,0 +1,752 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventAccessibility renders correctly 1`] = `
+<LayoutColumn
+  spacing={4}
+>
+  <Text
+    color="lightNavyBlueColor"
+    markdown={false}
+    markdownStyle={Object {}}
+    type="h2"
+  >
+    Accessibility Details
+  </Text>
+  <Text
+    color="blackColor"
+    markdown={false}
+    markdownStyle={Object {}}
+    type="text"
+  >
+    Test
+  </Text>
+</LayoutColumn>
+`;
+
+exports[`EventCategories renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "flexDirection": "row",
+      "flexWrap": "wrap",
+      "marginBottom": -8,
+    }
+  }
+>
+  <CategoryPill
+    key="Sports and Activities"
+    name="Sports and Activities"
+    onPress={[Function]}
+    style={
+      Object {
+        "marginBottom": 8,
+        "marginRight": 8,
+      }
+    }
+  />
+  <CategoryPill
+    key="Social and Networking"
+    name="Social and Networking"
+    onPress={[Function]}
+    style={
+      Object {
+        "marginBottom": 8,
+        "marginRight": 8,
+      }
+    }
+  />
+</Component>
+`;
+
+exports[`EventHeader renders correctly 1`] = `
+<Header
+  leftElement={
+    <Unknown
+      onPress={[Function]}
+    />
+  }
+  rightElement={
+    <SaveEventButton
+      active={true}
+      onDark={true}
+      onPress={[Function]}
+    />
+  }
+/>
+`;
+
+exports[`EventTickets renders correctly 1`] = `
+<withOrientation>
+  <ContentPadding
+    padding={Object {}}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <Button
+      disabled={false}
+      onPress={[Function]}
+    >
+      Get tickets
+    </Button>
+  </ContentPadding>
+</withOrientation>
+`;
+
+exports[`renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+  testID="event-details-screen"
+>
+  <EventHeader
+    isSaved={true}
+    navigation={
+      Object {
+        "goBack": [Function],
+      }
+    }
+    toggleSaved={[Function]}
+  />
+  <ShadowedScrollView
+    bottomShadow={true}
+    shadowOpacity={1}
+    style={Object {}}
+    topShadow={false}
+  >
+    <Component
+      style={
+        Object {
+          "aspectRatio": 1.6666666666666667,
+        }
+      }
+    >
+      <Connect(Image)
+        reference={
+          Object {
+            "sys": Object {
+              "id": "WL42lnL3UZw",
+            },
+          }
+        }
+        resizeMode="cover"
+        style={
+          Object {
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+          }
+        }
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "marginBottom": 32,
+          "marginTop": 16,
+        }
+      }
+    >
+      <LayoutColumn
+        spacing={20}
+      >
+        <ContentPadding
+          padding={Object {}}
+          style={Object {}}
+        >
+          <Text
+            color="blackColor"
+            markdown={false}
+            markdownStyle={Object {}}
+            style={
+              Object {
+                "marginBottom": 8,
+              }
+            }
+            type="h1"
+          >
+            name
+          </Text>
+          <LayoutColumn
+            spacing={20}
+          >
+            <EventCategories
+              event={
+                Object {
+                  "contentType": "event",
+                  "fields": Object {
+                    "accessibilityDetails": "accessibilityDetails",
+                    "accessibilityOptions": Array [
+                      "NdbaMFc2Ac10SITQ5mtYz6bH",
+                      "v55qLLw0A7252",
+                      "N6l78vhb5v7Db110qf3R5Lf",
+                      "9MKgzM7L6Xa0G7Wu2fVR4800n5",
+                    ],
+                    "addressLine1": "addressLine1",
+                    "addressLine2": "addressLine2",
+                    "audience": Array [
+                      "41aj65UJ1xyt883VJ",
+                    ],
+                    "city": "city",
+                    "email": "email",
+                    "endTime": "2018-07-07T03:00+00:00",
+                    "eventCategories": Array [
+                      "Sports and Activities",
+                      "Social and Networking",
+                    ],
+                    "eventDescription": "eventDescription",
+                    "eventPriceHigh": 10,
+                    "eventPriceLow": 0,
+                    "eventsListPicture": Object {
+                      "sys": Object {
+                        "id": "wBO9tm",
+                      },
+                    },
+                    "individualEventPicture": Object {
+                      "sys": Object {
+                        "id": "WL42lnL3UZw",
+                      },
+                    },
+                    "location": Object {
+                      "lat": 0,
+                      "lon": 10,
+                    },
+                    "locationName": "locationName",
+                    "name": "name",
+                    "performances": Array [
+                      Object {
+                        "sys": Object {
+                          "id": "u5D1jcTFc5",
+                        },
+                      },
+                      Object {
+                        "sys": Object {
+                          "id": "9F6CitrutIkIG",
+                        },
+                      },
+                      Object {
+                        "sys": Object {
+                          "id": "yGKTy8qs04S7GeqQ6WNnmDHypgexoy",
+                        },
+                      },
+                    ],
+                    "phone": "phone",
+                    "postcode": "postcode",
+                    "recurrenceDates": Array [
+                      "09/06/2018",
+                      "29/06/2018",
+                    ],
+                    "stage": true,
+                    "startTime": "2018-07-07T00:00+00:00",
+                    "ticketingUrl": "ticketingUrl",
+                    "venueDetails": Array [
+                      "e841984HixR8Los",
+                      "0O7rGQ1wijsD",
+                    ],
+                  },
+                  "id": "4D776SGAHYRnNGHx1DES622EFYZ",
+                  "locale": "en-GB",
+                  "revision": 1,
+                }
+              }
+              navigation={
+                Object {
+                  "goBack": [Function],
+                }
+              }
+              setCategoryFilter={[Function]}
+            />
+            <EventOverview
+              event={
+                Object {
+                  "contentType": "event",
+                  "fields": Object {
+                    "accessibilityDetails": "accessibilityDetails",
+                    "accessibilityOptions": Array [
+                      "NdbaMFc2Ac10SITQ5mtYz6bH",
+                      "v55qLLw0A7252",
+                      "N6l78vhb5v7Db110qf3R5Lf",
+                      "9MKgzM7L6Xa0G7Wu2fVR4800n5",
+                    ],
+                    "addressLine1": "addressLine1",
+                    "addressLine2": "addressLine2",
+                    "audience": Array [
+                      "41aj65UJ1xyt883VJ",
+                    ],
+                    "city": "city",
+                    "email": "email",
+                    "endTime": "2018-07-07T03:00+00:00",
+                    "eventCategories": Array [
+                      "Sports and Activities",
+                      "Social and Networking",
+                    ],
+                    "eventDescription": "eventDescription",
+                    "eventPriceHigh": 10,
+                    "eventPriceLow": 0,
+                    "eventsListPicture": Object {
+                      "sys": Object {
+                        "id": "wBO9tm",
+                      },
+                    },
+                    "individualEventPicture": Object {
+                      "sys": Object {
+                        "id": "WL42lnL3UZw",
+                      },
+                    },
+                    "location": Object {
+                      "lat": 0,
+                      "lon": 10,
+                    },
+                    "locationName": "locationName",
+                    "name": "name",
+                    "performances": Array [
+                      Object {
+                        "sys": Object {
+                          "id": "u5D1jcTFc5",
+                        },
+                      },
+                      Object {
+                        "sys": Object {
+                          "id": "9F6CitrutIkIG",
+                        },
+                      },
+                      Object {
+                        "sys": Object {
+                          "id": "yGKTy8qs04S7GeqQ6WNnmDHypgexoy",
+                        },
+                      },
+                    ],
+                    "phone": "phone",
+                    "postcode": "postcode",
+                    "recurrenceDates": Array [
+                      "09/06/2018",
+                      "29/06/2018",
+                    ],
+                    "stage": true,
+                    "startTime": "2018-07-07T00:00+00:00",
+                    "ticketingUrl": "ticketingUrl",
+                    "venueDetails": Array [
+                      "e841984HixR8Los",
+                      "0O7rGQ1wijsD",
+                    ],
+                  },
+                  "id": "4D776SGAHYRnNGHx1DES622EFYZ",
+                  "locale": "en-GB",
+                  "revision": 1,
+                }
+              }
+            />
+            <SectionDivider />
+            <EventDescription
+              event={
+                Object {
+                  "contentType": "event",
+                  "fields": Object {
+                    "accessibilityDetails": "accessibilityDetails",
+                    "accessibilityOptions": Array [
+                      "NdbaMFc2Ac10SITQ5mtYz6bH",
+                      "v55qLLw0A7252",
+                      "N6l78vhb5v7Db110qf3R5Lf",
+                      "9MKgzM7L6Xa0G7Wu2fVR4800n5",
+                    ],
+                    "addressLine1": "addressLine1",
+                    "addressLine2": "addressLine2",
+                    "audience": Array [
+                      "41aj65UJ1xyt883VJ",
+                    ],
+                    "city": "city",
+                    "email": "email",
+                    "endTime": "2018-07-07T03:00+00:00",
+                    "eventCategories": Array [
+                      "Sports and Activities",
+                      "Social and Networking",
+                    ],
+                    "eventDescription": "eventDescription",
+                    "eventPriceHigh": 10,
+                    "eventPriceLow": 0,
+                    "eventsListPicture": Object {
+                      "sys": Object {
+                        "id": "wBO9tm",
+                      },
+                    },
+                    "individualEventPicture": Object {
+                      "sys": Object {
+                        "id": "WL42lnL3UZw",
+                      },
+                    },
+                    "location": Object {
+                      "lat": 0,
+                      "lon": 10,
+                    },
+                    "locationName": "locationName",
+                    "name": "name",
+                    "performances": Array [
+                      Object {
+                        "sys": Object {
+                          "id": "u5D1jcTFc5",
+                        },
+                      },
+                      Object {
+                        "sys": Object {
+                          "id": "9F6CitrutIkIG",
+                        },
+                      },
+                      Object {
+                        "sys": Object {
+                          "id": "yGKTy8qs04S7GeqQ6WNnmDHypgexoy",
+                        },
+                      },
+                    ],
+                    "phone": "phone",
+                    "postcode": "postcode",
+                    "recurrenceDates": Array [
+                      "09/06/2018",
+                      "29/06/2018",
+                    ],
+                    "stage": true,
+                    "startTime": "2018-07-07T00:00+00:00",
+                    "ticketingUrl": "ticketingUrl",
+                    "venueDetails": Array [
+                      "e841984HixR8Los",
+                      "0O7rGQ1wijsD",
+                    ],
+                  },
+                  "id": "4D776SGAHYRnNGHx1DES622EFYZ",
+                  "locale": "en-GB",
+                  "revision": 1,
+                }
+              }
+            />
+            <EventMap
+              lat={0}
+              locationName="locationName"
+              lon={10}
+            />
+            <SectionDivider />
+          </LayoutColumn>
+        </ContentPadding>
+        <PerformanceList
+          performancePeriods={
+            Array [
+              Array [
+                Object {
+                  "contentType": "performance",
+                  "fields": Object {
+                    "startTime": "2018-07-10T00:45+00:00",
+                    "title": "title",
+                  },
+                  "id": "287L3y0sPcr01j5LYxVGv8lxu87i6",
+                  "locale": "en-GB",
+                  "revision": 1,
+                },
+              ],
+              Array [
+                Object {
+                  "contentType": "performance",
+                  "fields": Object {
+                    "startTime": "2018-08-08T15:45+00:00",
+                    "title": "title",
+                  },
+                  "id": "g3QY",
+                  "locale": "en-GB",
+                  "revision": 1,
+                },
+                Object {
+                  "contentType": "performance",
+                  "fields": Object {
+                    "startTime": "2018-08-08T15:45+00:00",
+                    "title": "title",
+                  },
+                  "id": "0z4",
+                  "locale": "en-GB",
+                  "revision": 1,
+                },
+              ],
+            ]
+          }
+        />
+        <ContentPadding
+          padding={Object {}}
+          style={Object {}}
+        >
+          <LayoutColumn
+            spacing={20}
+          >
+            <SectionDivider />
+            <EventAccessibility>
+              accessibilityDetails
+            </EventAccessibility>
+            <SectionDivider />
+            <EventContact
+              email="email"
+              phone="phone"
+            />
+          </LayoutColumn>
+        </ContentPadding>
+      </LayoutColumn>
+    </Component>
+  </ShadowedScrollView>
+  <EventTickets
+    url="ticketingUrl"
+  />
+</Component>
+`;
+
+exports[`renders correctly with missing details 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+  testID="event-details-screen"
+>
+  <EventHeader
+    isSaved={false}
+    navigation={
+      Object {
+        "goBack": [Function],
+      }
+    }
+    toggleSaved={[Function]}
+  />
+  <ShadowedScrollView
+    bottomShadow={true}
+    shadowOpacity={1}
+    style={Object {}}
+    topShadow={false}
+  >
+    <Component
+      style={
+        Object {
+          "aspectRatio": 1.6666666666666667,
+        }
+      }
+    >
+      <Connect(Image)
+        reference={
+          Object {
+            "sys": Object {
+              "id": "WL42lnL3UZw",
+            },
+          }
+        }
+        resizeMode="cover"
+        style={
+          Object {
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+          }
+        }
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "marginBottom": 32,
+          "marginTop": 16,
+        }
+      }
+    >
+      <LayoutColumn
+        spacing={20}
+      >
+        <ContentPadding
+          padding={Object {}}
+          style={Object {}}
+        >
+          <Text
+            color="blackColor"
+            markdown={false}
+            markdownStyle={Object {}}
+            style={
+              Object {
+                "marginBottom": 8,
+              }
+            }
+            type="h1"
+          >
+            name
+          </Text>
+          <LayoutColumn
+            spacing={20}
+          >
+            <EventCategories
+              event={
+                Object {
+                  "contentType": "event",
+                  "fields": Object {
+                    "accessibilityDetails": null,
+                    "accessibilityOptions": Array [],
+                    "addressLine1": null,
+                    "addressLine2": null,
+                    "audience": Array [],
+                    "city": null,
+                    "email": null,
+                    "endTime": "2018-07-07T03:00+00:00",
+                    "eventCategories": Array [
+                      "Sports and Activities",
+                      "Social and Networking",
+                    ],
+                    "eventDescription": "eventDescription",
+                    "eventPriceHigh": 10,
+                    "eventPriceLow": 0,
+                    "eventsListPicture": Object {
+                      "sys": Object {
+                        "id": "wBO9tm",
+                      },
+                    },
+                    "individualEventPicture": Object {
+                      "sys": Object {
+                        "id": "WL42lnL3UZw",
+                      },
+                    },
+                    "location": Object {
+                      "lat": 0,
+                      "lon": 10,
+                    },
+                    "locationName": "locationName",
+                    "name": "name",
+                    "performances": Array [],
+                    "phone": null,
+                    "postcode": null,
+                    "recurrenceDates": Array [],
+                    "stage": false,
+                    "startTime": "2018-07-07T00:00+00:00",
+                    "ticketingUrl": null,
+                    "venueDetails": Array [],
+                  },
+                  "id": "4D776SGAHYRnNGHx1DES622EFYZ",
+                  "locale": "en-GB",
+                  "revision": 1,
+                }
+              }
+              navigation={
+                Object {
+                  "goBack": [Function],
+                }
+              }
+              setCategoryFilter={[Function]}
+            />
+            <EventOverview
+              event={
+                Object {
+                  "contentType": "event",
+                  "fields": Object {
+                    "accessibilityDetails": null,
+                    "accessibilityOptions": Array [],
+                    "addressLine1": null,
+                    "addressLine2": null,
+                    "audience": Array [],
+                    "city": null,
+                    "email": null,
+                    "endTime": "2018-07-07T03:00+00:00",
+                    "eventCategories": Array [
+                      "Sports and Activities",
+                      "Social and Networking",
+                    ],
+                    "eventDescription": "eventDescription",
+                    "eventPriceHigh": 10,
+                    "eventPriceLow": 0,
+                    "eventsListPicture": Object {
+                      "sys": Object {
+                        "id": "wBO9tm",
+                      },
+                    },
+                    "individualEventPicture": Object {
+                      "sys": Object {
+                        "id": "WL42lnL3UZw",
+                      },
+                    },
+                    "location": Object {
+                      "lat": 0,
+                      "lon": 10,
+                    },
+                    "locationName": "locationName",
+                    "name": "name",
+                    "performances": Array [],
+                    "phone": null,
+                    "postcode": null,
+                    "recurrenceDates": Array [],
+                    "stage": false,
+                    "startTime": "2018-07-07T00:00+00:00",
+                    "ticketingUrl": null,
+                    "venueDetails": Array [],
+                  },
+                  "id": "4D776SGAHYRnNGHx1DES622EFYZ",
+                  "locale": "en-GB",
+                  "revision": 1,
+                }
+              }
+            />
+            <SectionDivider />
+            <EventDescription
+              event={
+                Object {
+                  "contentType": "event",
+                  "fields": Object {
+                    "accessibilityDetails": null,
+                    "accessibilityOptions": Array [],
+                    "addressLine1": null,
+                    "addressLine2": null,
+                    "audience": Array [],
+                    "city": null,
+                    "email": null,
+                    "endTime": "2018-07-07T03:00+00:00",
+                    "eventCategories": Array [
+                      "Sports and Activities",
+                      "Social and Networking",
+                    ],
+                    "eventDescription": "eventDescription",
+                    "eventPriceHigh": 10,
+                    "eventPriceLow": 0,
+                    "eventsListPicture": Object {
+                      "sys": Object {
+                        "id": "wBO9tm",
+                      },
+                    },
+                    "individualEventPicture": Object {
+                      "sys": Object {
+                        "id": "WL42lnL3UZw",
+                      },
+                    },
+                    "location": Object {
+                      "lat": 0,
+                      "lon": 10,
+                    },
+                    "locationName": "locationName",
+                    "name": "name",
+                    "performances": Array [],
+                    "phone": null,
+                    "postcode": null,
+                    "recurrenceDates": Array [],
+                    "stage": false,
+                    "startTime": "2018-07-07T00:00+00:00",
+                    "ticketingUrl": null,
+                    "venueDetails": Array [],
+                  },
+                  "id": "4D776SGAHYRnNGHx1DES622EFYZ",
+                  "locale": "en-GB",
+                  "revision": 1,
+                }
+              }
+            />
+            <EventMap
+              lat={0}
+              locationName="locationName"
+              lon={10}
+            />
+          </LayoutColumn>
+        </ContentPadding>
+      </LayoutColumn>
+    </Component>
+  </ShadowedScrollView>
+</Component>
+`;

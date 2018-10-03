@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Touchable
+  accessibilityComponentType="button"
+  accessibilityTraits={
+    Array [
+      "button",
+    ]
+  }
+  delayPressIn={50}
+  onPress={[Function]}
+  style={
+    Object {
+      "borderRadius": 6,
+      "overflow": "hidden",
+    }
+  }
+>
+  <Delayed
+    delay={600}
+  >
+    <MapView
+      cacheEnabled={true}
+      initialRegion={
+        Object {
+          "latitude": 100,
+          "latitudeDelta": 0.008,
+          "longitude": 200,
+          "longitudeDelta": 0.008,
+        }
+      }
+      loadingEnabled={true}
+      scrollEnabled={false}
+      style={
+        Object {
+          "height": 160,
+        }
+      }
+      zoomEnabled={false}
+    >
+      <MapMarker
+        coordinate={
+          Object {
+            "latitude": 100,
+            "longitude": 200,
+          }
+        }
+        stopPropagation={false}
+      />
+    </MapView>
+  </Delayed>
+</Touchable>
+`;

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoriesFilterScreen Component renders correctly 1`] = `
+<withOrientation
+  style={
+    Object {
+      "backgroundColor": "#2d2f7f",
+      "flex": 1,
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Header
+    onBack={[Function]}
+    onClearAll={[Function]}
+    selectedCategories={
+      Set {
+        "Music",
+      }
+    }
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <List
+      onPress={[Function]}
+      stagedCategories={
+        Set {
+          "Music",
+        }
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "backgroundColor": "#2d2f7f",
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <ContentPadding
+      padding={Object {}}
+      style={Object {}}
+    >
+      <Button
+        accessibilityLabel="Show 1 selected event"
+        disabled={false}
+        onPress={[Function]}
+        testID="apply-category-filter-button"
+      >
+        Show 1 event
+      </Button>
+    </ContentPadding>
+  </Component>
+</withOrientation>
+`;
+
+exports[`CategoriesFilterScreen Component renders correctly with no categories selected 1`] = `
+<withOrientation
+  style={
+    Object {
+      "backgroundColor": "#2d2f7f",
+      "flex": 1,
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Header
+    onBack={[Function]}
+    onClearAll={[Function]}
+    selectedCategories={Set {}}
+  />
+  <Component
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <List
+      onPress={[Function]}
+      stagedCategories={Set {}}
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "backgroundColor": "#2d2f7f",
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <ContentPadding
+      padding={Object {}}
+      style={Object {}}
+    >
+      <Button
+        accessibilityLabel="Show 1 selected event"
+        disabled={false}
+        onPress={[Function]}
+        testID="apply-category-filter-button"
+      >
+        Show 1 event
+      </Button>
+    </ContentPadding>
+  </Component>
+</withOrientation>
+`;

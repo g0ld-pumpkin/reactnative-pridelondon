@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "borderRadius": 3,
+      "minHeight": 200,
+      "overflow": "hidden",
+    }
+  }
+>
+  <Connect(ImageBackground)
+    reference={
+      Object {
+        "sys": Object {
+          "id": "n2IQ6opic1Pj8",
+        },
+      }
+    }
+    resizeMode="cover"
+    style={
+      Object {
+        "backgroundColor": "#C1C1C1",
+        "height": 120,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "bottom": 0,
+          "flexWrap": "wrap",
+          "position": "absolute",
+          "right": 0,
+        }
+      }
+    >
+      <CategoryPill
+        name="Health"
+        numberOfLines={2}
+        style={Object {}}
+      />
+    </Component>
+  </Connect(ImageBackground)>
+  <Component
+    style={
+      Object {
+        "paddingHorizontal": 8,
+        "paddingTop": 8,
+      }
+    }
+  >
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      style={
+        Object {
+          "color": "rgb(45, 47, 127)",
+        }
+      }
+      type="small"
+    >
+      Fri, 17 March
+    </Text>
+    <Text
+      color="blackColor"
+      ellipsizeMode="tail"
+      markdown={false}
+      markdownStyle={Object {}}
+      numberOfLines={2}
+      style={
+        Object {
+          "color": "rgb(45, 47, 127)",
+        }
+      }
+      type="h3"
+    >
+      Hello Pride
+    </Text>
+  </Component>
+</Component>
+`;

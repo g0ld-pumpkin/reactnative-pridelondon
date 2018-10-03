@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeaturedEventListScreen Component renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    leftElement={
+      <Unknown
+        onPress={[Function]}
+      />
+    }
+    title="Featured events"
+  />
+  <EventList
+    addSavedEvent={[Function]}
+    events={Array []}
+    onPress={[Function]}
+    refreshing={false}
+    removeSavedEvent={[Function]}
+    savedEvents={Set {}}
+  />
+</Component>
+`;

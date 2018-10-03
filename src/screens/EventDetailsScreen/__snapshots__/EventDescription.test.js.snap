@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Component>
+  <Text
+    color="lightNavyBlueColor"
+    markdown={false}
+    markdownStyle={Object {}}
+    style={
+      Object {
+        "marginBottom": 4,
+      }
+    }
+    type="h2"
+  >
+    About
+  </Text>
+  <Collapsible
+    maxHeight={140}
+    showLessLabel="Read less"
+    showMoreLabel="Read more"
+  >
+    <Text
+      color="blackColor"
+      markdown={true}
+      markdownStyle={Object {}}
+      type="text"
+    >
+      eventDescription
+    </Text>
+  </Collapsible>
+</Component>
+`;

@@ -1,0 +1,226 @@
+fastlane_version "2.99.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    setup_circle_ci
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(scheme: "PrideLondonApp")
+  end
+
+  desc "Signed build"
+  lane :build do |options|
+    match(
+      type: options[:match_type],
+      app_identifier: options[:app_identifier],
+      readonly: true
+    )
+    gym(
+      clean: true,
+      export_method: options[:export_method],
+      configuration: options[:configuration],
+      scheme: "PrideLondonApp",
+      silent: true,
+      suppress_xcode_output: true,
+    )
+  end
+
+  desc "Alpha build and deploy"
+  lane :alpha do |options|
+    increment_build_number(build_number:options[:ci_build_num])
+    build(
+      match_type: "adhoc",
+      export_method: "ad-hoc",
+      configuration: "AdhocAlpha",
+      app_identifier: "org.prideinlondon.festival.alpha"
+    )
+    if options[:submit]
+      notes = build_notes(options[:commit_sha])
+      deploy_fabric(
+        api_token: options[:fabric_api_token],
+        build_secret: options[:fabric_build_secret],
+        notes: notes,
+        groups: options[:fabric_groups],
+        notify: false,
+      )
+      deploy_hockey(
+        commit_sha: options[:commit_sha],
+        api_token: options[:api_token],
+        app_id: options[:app_id],
+        status: "2",
+        notify: "0",
+        notes: notes
+      )
+    end
+  end
+
+  desc "Beta build and deploy"
+  lane :beta do |options|
+    ensure_git_branch(branch: "master")
+    increment_build_number(build_number:options[:ci_build_num])
+    build(
+      match_type: "adhoc",
+      export_method: "ad-hoc",
+      configuration: "AdhocBeta",
+      app_identifier: "org.prideinlondon.festival.beta"
+    )
+    if options[:submit]
+      notes = build_notes(options[:commit_sha])
+      deploy_fabric(
+        api_token: options[:fabric_api_token],
+        build_secret: options[:fabric_build_secret],
+        notes: notes,
+        groups: options[:fabric_groups],
+        notify: true,
+      )
+      deploy_hockey(
+        commit_sha: options[:commit_sha],
+        api_token: options[:api_token],
+        app_id: options[:app_id],
+        status: "2",
+        notify: "1",
+        notes: notes,
+      )
+      upload_symbols_to_bugsnag
+      send_build_to_bugsnag(
+        api_key: options[:bugsnag_api_key],
+        release_stage: options[:release_stage]
+      )
+    end
+  end
+
+  desc "Build and Deploy a release to iTunes Connect"
+  lane :release do |options|
+    begin
+      ensure_git_branch(branch: "master")
+      increment_build_number(build_number:options[:ci_build_num])
+      build(
+        match_type: "appstore",
+        export_method: "app-store",
+        configuration: "Release",
+        app_identifier: "org.prideinlondon.festival"
+      )
+      if options[:submit]
+        deploy_testflight
+        download_dsyms(version: get_version_number)
+        upload_symbols_to_bugsnag
+        send_build_to_bugsnag(
+          api_key: options[:bugsnag_api_key],
+          release_stage: options[:release_stage]
+        )
+      end
+    rescue => exception
+      notify_failure(exception, options[:slack_webhook], options[:ci_build_num])
+    end
+  end
+
+  desc "Promote to Production"
+  lane :promote_to_production do |options|
+    latestBuildNumber = latest_testflight_build_number
+    # Config in DeliverFile
+    deliver(
+      app_version: get_version_number
+    )
+
+    # Post to Slack
+    if defined?(options[:slack_webhook])
+      slack(
+        message: "iOS build #{latestBuildNumber} submitted for Review!",
+        success: true,
+        slack_url: options[:slack_webhook],
+      )
+    end
+  end
+
+  desc "Upload to TestFlight and notify testers"
+  lane :deploy_testflight do
+    testflight(
+      skip_submission: true,
+      distribute_external: false,
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Upload to HockeyApp"
+  lane :deploy_hockey do |options|
+    hockey(
+      api_token: options[:api_token],
+      public_identifier: options[:app_id],
+      notes: options[:notes],
+      status: options[:status],
+      notify: options[:notify],
+      commit_sha: options[:commit_sha]
+    )
+  end
+
+  desc "Upload to Beta by Fabric"
+  lane :deploy_fabric do |options|
+    crashlytics(
+      api_token: options[:api_token],
+      build_secret: options[:build_secret],
+      notes: options[:notes],
+      groups: options[:groups],
+      notifications: options[:notify]
+    )
+  end
+
+  def build_notes(commit_sha)
+    date = Time.now.strftime('%F')
+    time = Time.now.strftime('%T')
+    commit_msg = sh("git log --format=%B -n 1 #{commit_sha}").strip
+    notes = "#{git_branch}/#{commit_msg} on #{date} at #{time}"
+    return notes
+  end
+
+  def notify_failure(exception, webhook, build_num)
+    slack(
+      message: 'iOS release build failed!',
+      success: false,
+      slack_url: webhook,
+      attachment_properties: {
+        fields: [
+          {
+            title: "Build number",
+            value: build_num,
+          },
+          {
+            title: "Error message",
+            value: exception.to_s,
+            short: false
+          }
+        ]
+      }
+    )
+  end
+
+  desc "Add devices"
+  lane :devices do |options|
+    new_devices = get_unprovisioned_devices_from_hockey(app_bundle_id:'org.prideinlondon.festival', api_token:options[:api_token])
+    register_devices(devices: new_devices)
+    match(
+      type: "development",
+      app_identifier: "org.prideinlondon.festival",
+      force_for_new_devices: true
+    )
+    match(
+      type: "adhoc",
+      app_identifier: "org.prideinlondon.festival.alpha",
+      force_for_new_devices: true
+    )
+    match(
+      type: "adhoc",
+      app_identifier: "org.prideinlondon.festival.beta",
+      force_for_new_devices: true
+    )
+  end
+
+  lane :refresh_dsyms do |options|
+    download_dsyms(version: options[:version])
+    upload_symbols_to_bugsnag
+    clean_build_artifacts
+  end
+end

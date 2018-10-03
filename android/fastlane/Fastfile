@@ -1,0 +1,194 @@
+fastlane_version "2.99.0"
+
+default_platform :android
+
+platform :android do
+  desc "Build alpha"
+  lane :build_alpha do
+    gradle(
+      task: "assemble",
+      build_type: "release",
+      flavor: "alpha",
+    )
+  end
+
+  desc "Build beta"
+  lane :build_beta do
+    gradle(
+      task: 'assemble',
+      build_type: 'release',
+      flavor: "beta",
+    )
+  end
+
+  desc "Build release"
+  lane :build_release do
+    gradle(
+      task: 'assemble',
+      build_type: 'release',
+      flavor: "production",
+    )
+  end
+
+  desc "Build and deploy to Alpha lane"
+  lane :alpha do |options|
+    build_alpha
+    if options[:submit]
+      notes = build_notes(options[:commit_sha])
+      deploy_fabric(
+        api_token: options[:fabric_api_token],
+        build_secret: options[:fabric_build_secret],
+        notes: notes,
+        groups: options[:fabric_groups],
+        notify: false,
+      )
+      deploy_hockey(
+        commit_sha: options[:commit_sha],
+        api_token: options[:api_token],
+        app_id: options[:app_id],
+        apk_path: options[:apk_path],
+        status: "2",
+        notify: "0",
+        notes: notes,
+      )
+    end
+  end
+
+  desc "Build and deploy to Beta lane"
+  lane :beta do |options|
+    build_beta
+    if options[:submit]
+      notes = build_notes(options[:commit_sha])
+      deploy_fabric(
+        api_token: options[:fabric_api_token],
+        build_secret: options[:fabric_build_secret],
+        notes: notes,
+        groups: options[:fabric_groups],
+        notify: true,
+      )
+      deploy_hockey(
+        commit_sha: options[:commit_sha],
+        api_token: options[:api_token],
+        app_id: options[:app_id],
+        apk_path: options[:apk_path],
+        status: "2",
+        notify: "1",
+        notes: notes,
+      )
+    end
+  end
+
+  desc "Build and deploy to Play Store"
+  lane :release do |options|
+    begin
+      build_release
+      if options[:submit]
+        deploy_play_store(
+          apk: options[:apk_path],
+          upload_key: options[:upload_key]
+        )
+      end
+    rescue => exception
+      notify_failure(exception, options[:slack_webhook], options[:ci_build_num])
+    end
+  end
+
+  desc "Deploy to HockeyApp"
+  lane :deploy_hockey do |options|
+    hockey(
+      api_token: options[:api_token],
+      public_identifier: options[:app_id],
+      apk: options[:apk_path],
+      notes: options[:notes],
+      status: options[:status],
+      notify: options[:notify],
+      commit_sha: options[:commit_sha]
+      )
+  end
+
+  desc "Deploy to Beta by Fabric"
+  lane :deploy_fabric do |options|
+    File.write("./notes.txt", options[:notes])
+    crashlytics(
+      api_token: options[:api_token],
+      build_secret: options[:build_secret],
+      apk_path: options[:apk_path],
+      notes_path: "fastlane/notes.txt",
+      groups: options[:groups],
+      notifications: options[:notify]
+      )
+  end
+
+  desc "Deploy to Play Store"
+  lane :deploy_play_store do |options|
+    upload_to_play_store(
+      track: 'beta',
+      apk: options[:apk],
+      json_key: options[:upload_key],
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      validate_only: false
+    )
+  end
+
+  desc "Promote to production"
+  lane :promote_to_production do |options|
+    # We should only ever have one build in our Beta track
+    # so if this fails we have other problems
+    latestVersionCode = google_play_track_version_codes(
+      track: 'beta'
+    )[0]
+
+    # We check that a changelog has been checked in
+    expectedFile = "#{latestVersionCode}.txt"
+    if !File.exist?("metadata/android/en-GB/changelogs/" + expectedFile)
+      UI.user_error!("Changelog for Version Code #{latestVersionCode} doesn't exist!")
+    end
+
+    upload_to_play_store(
+      track: 'beta',
+      track_promote_to: 'production',
+      skip_upload_apk: true
+    )
+
+    if defined?(options[:slack_webhook])
+      slack(
+        message: "Android build #{latestVersionCode} promoted to Production!",
+        success: true,
+        slack_url: options[:slack_webhook],
+      )
+    end
+  end
+
+  def build_notes(commit_sha)
+    date = Time.now.strftime('%F')
+    time = Time.now.strftime('%T')
+    commit_msg = sh("git log --format=%B -n 1 #{commit_sha}").strip
+    notes = "#{git_branch}/#{commit_msg} on #{date} at #{time}"
+    return notes
+  end
+
+  def notify_failure(exception, webhook, build_num)
+    if defined?(webhook)
+      slack(
+        message: 'Android release build failed!',
+        success: false,
+        slack_url: webhook,
+        attachment_properties: {
+          fields: [
+            {
+              title: "Build number",
+              value: build_num,
+            },
+            {
+              title: "Error message",
+              value: exception.to_s,
+              short: false
+            }
+          ]
+        }
+      )
+    end
+  end
+end

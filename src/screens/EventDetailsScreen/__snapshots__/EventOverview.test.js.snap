@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<IconList>
+  <IconItem
+    source={1}
+  >
+    <Text
+      color="lightNavyBlueColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="h4"
+    >
+      Sat, 07 Jul 2018
+    </Text>
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="small"
+    >
+      01:00 – 04:00
+    </Text>
+    <RecurrenceDates
+      recurrenceDates={
+        Array [
+          "09/07/2018",
+          "06/07/2018",
+        ]
+      }
+      startTime="2018-07-07T00:00+00:00"
+    />
+  </IconItem>
+  <IconItem
+    onPress={[Function]}
+    source={1}
+  >
+    <TextLink>
+      locationName
+    </TextLink>
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="small"
+    >
+      addressLine1
+    </Text>
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="small"
+    >
+      addressLine2
+    </Text>
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="small"
+    >
+      city
+    </Text>
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="small"
+    >
+      postcode
+    </Text>
+  </IconItem>
+  <IconItem
+    source={1}
+  >
+    <Text
+      color="lightNavyBlueColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="h4"
+    >
+      £0 — £10
+    </Text>
+  </IconItem>
+  <IconItem
+    source={1}
+  >
+    <Text
+      color="lightNavyBlueColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="h4"
+    >
+      Accessibility
+    </Text>
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      type="small"
+    >
+      CISQ3V775yDAcd3L8x5z6xmH9F1310, LiT957P92gV4B57HH6A04IO, iVoj4qUG6JMx597x47Bq2pxm0o
+    </Text>
+  </IconItem>
+</IconList>
+`;

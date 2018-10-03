@@ -1,0 +1,11 @@
+version: "2"
+exclude_patterns:
+  - "**/*.test.js"
+  - "**/flow-typed"
+checks:
+  similar-code:
+    config:
+      threshold: 150
+  method-lines:
+    config:
+      threshold: 50

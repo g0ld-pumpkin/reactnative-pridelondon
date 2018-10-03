@@ -1,0 +1,5 @@
+git_url "git@github.com:redbadger/match-ios-certificates.git"
+
+type "development" # The default type, can be: appstore, adhoc, enterprise or development
+
+app_identifier ["org.prideinlondon.festival"]

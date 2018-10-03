@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem Component renders correctly 1`] = `
+<Touchable
+  accessibilityComponentType="radiobutton_checked"
+  accessibilityTraits={
+    Array [
+      "button",
+      "selected",
+    ]
+  }
+  delayPressIn={50}
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "flex": 1,
+      "minHeight": 48,
+      "paddingBottom": 8,
+      "paddingTop": 8,
+      "position": "relative",
+    }
+  }
+  testID="categories-filter-list-item-music"
+>
+  <AnimatedComponent
+    style={
+      Array [
+        Object {
+          "position": "absolute",
+          "width": 766,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "height": 56,
+          "transform": Array [
+            Object {
+              "translateX": -1484,
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <Image
+    height={20}
+    source={1}
+    style={
+      Object {
+        "marginLeft": 6,
+        "position": "absolute",
+      }
+    }
+    width={20}
+  />
+  <Component
+    onLayout={[Function]}
+  >
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "letterSpacing": 0,
+            "paddingLeft": 32,
+            "paddingTop": 10,
+          },
+          Object {
+            "color": "#111111",
+          },
+        ]
+      }
+      type="h1"
+    >
+      Music
+    </Text>
+  </Component>
+</Touchable>
+`;
+
+exports[`ListItem Component renders correctly without selected 1`] = `
+<Touchable
+  accessibilityComponentType="radiobutton_unchecked"
+  accessibilityTraits={
+    Array [
+      "button",
+    ]
+  }
+  delayPressIn={50}
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "flex": 1,
+      "minHeight": 48,
+      "paddingBottom": 8,
+      "paddingTop": 8,
+      "position": "relative",
+    }
+  }
+  testID="categories-filter-list-item-music"
+>
+  <AnimatedComponent
+    style={
+      Array [
+        Object {
+          "position": "absolute",
+          "width": 766,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "height": 56,
+          "transform": Array [
+            Object {
+              "translateX": -750,
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <Component
+    onLayout={[Function]}
+  >
+    <Text
+      color="blackColor"
+      markdown={false}
+      markdownStyle={Object {}}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "letterSpacing": 0,
+            "paddingLeft": 32,
+            "paddingTop": 10,
+          },
+          Object {
+            "color": "#ffffff",
+          },
+        ]
+      }
+      type="h1"
+    >
+      Music
+    </Text>
+  </Component>
+</Touchable>
+`;
